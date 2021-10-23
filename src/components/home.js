@@ -1,10 +1,64 @@
-import React from 'react'
+import "../css/home.css";
+import Navbar from "./navbar";
+import axios from "axios";
+import React, { Component } from "react";
 
-export default function home() {
+class Search extends Component {
+  state = {
+    query: "",
+    results: [],
+  };
+
+  getInfo = () => {
+    axios
+      .get(`http://ratemyfaculty.herokuapp.com/search/${this.state.query}`)
+      .then(({ data }) => {
+        // console.log(data);
+        this.setState({
+          results: data,
+        });
+      });
+  };
+
+  handleInputChange = () => {
+    this.setState(
+      {
+        query: this.search.value,
+      },
+      () => {
+        if (this.state.query && this.state.query.length > 1) {
+          if (this.state.query.length % 2 === 0) {
+            this.getInfo();
+          }
+        }
+      }
+    );
+  };
+
+  render() {
     return (
-        <div>
-            home
+      <div>
+        <Navbar />
+        <div className="wrapper">
+          <div className="search-box">
+            <input
+              type="text"
+              placeholder="Search.."
+              ref={(input) => (this.search = input)}
+              onChange={this.handleInputChange}
+            ></input>
+            <div className="search-suggestion-box">
+              <span className="search-items">
+                {this.state.results.map((faculty) => (
+                  <li key={faculty.id}>{faculty.faculty_name}</li>
+                ))}
+              </span>
+            </div>
+          </div>
         </div>
-    )
+      </div>
+    );
+  }
 }
 
+export default Search;
