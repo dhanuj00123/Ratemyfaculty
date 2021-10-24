@@ -8,3 +8,11 @@
   border: 2px rgb(173, 173, 173) solid;
   border-radius: 3px;
 }
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
