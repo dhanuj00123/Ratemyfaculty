@@ -3,11 +3,26 @@
   padding-bottom: 15px;
 }
 
-.cards {
+/* .CSE-div {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   align-content: space-around;
   flex-wrap: wrap;
+} */
+
+.cse-div-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.title {
+  font-weight: 700;
+  /* color: white; */
+}
+.main-div {
+  background-color: grey;
+  margin: 20px;
 }
