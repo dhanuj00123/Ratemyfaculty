@@ -1,9 +1,10 @@
 import React from "react";
 import Navbar from "./navbar";
-import { Search as _Search } from "react-feather";
+import { Search, Search as _Search } from "react-feather";
 import "../css/explore.css";
 import Cards from "./cards";
 import axios from "axios";
+import Searchbar from "./search";
 
 class explore extends React.Component {
   state = {
@@ -14,33 +15,19 @@ class explore extends React.Component {
     axios
       .get("http://ratemyfaculty.herokuapp.com/get-faculties")
       .then(({ data }) => {
-        console.log(data);
+        // console.log(data);
         this.setState({
           results: data,
         });
       });
   }
 
-  // getInfo = () => {
-  //   axios
-  //     .get(`http://ratemyfaculty.herokuapp.com/get-faculties`)
-  //     .then(({ data }) => {
-  //       console.log(data);
-  //       this.setState({
-  //         results: data,
-  //       });
-  //     });
-  // };
-
   render() {
     return (
       <div>
         <Navbar />
         <div className="search-box-div">
-          <div className="search-box">
-            <_Search size={30} />
-            <input type="text" placeholder="Find faculty.." />
-          </div>
+          <Searchbar />
         </div>
         <div className="cards">
           {this.state.results.map((faculty) => (

@@ -1,13 +1,8 @@
 .search-box-div {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
+  padding-top: 5px;
+  padding-bottom: 15px;
 }
-.search-box {
-  border: 2px rgb(173, 173, 173) solid;
-  border-radius: 3px;
-}
+
 .cards {
   display: flex;
   flex-direction: row;

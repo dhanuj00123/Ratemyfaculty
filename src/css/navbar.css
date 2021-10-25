@@ -1,18 +1,19 @@
 .nav-bar {
+  height: 55px;
   display: flex;
   justify-content: space-between;
   background-color: white;
 }
 p {
   padding-left: 20px;
-  padding-top: 5px;
+  padding-top: 15px;
 }
 ul li {
   text-decoration: none;
   list-style-type: none;
 }
 ul {
-  padding-top: 5px;
+  padding-top: 15px;
   display: flex;
   justify-content: space-between;
   width: 230px;
