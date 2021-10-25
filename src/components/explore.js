@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "./navbar";
-import { Search, Search as _Search } from "react-feather";
 import "../css/explore.css";
 import Cards from "./cards";
 import axios from "axios";
@@ -30,14 +29,17 @@ class explore extends React.Component {
           <Searchbar />
         </div>
         <div className="cards">
-          {this.state.results.map((faculty) => (
-            <Cards
-              name={faculty.faculty_name}
-              img={faculty.faculty_img_url}
-              rating={faculty.faculty_rating}
-              position={faculty.faculty_position}
-            />
-          ))}
+          {this.state.results
+            .filter((faculty) => faculty.dept_id === "CSE")
+            .map((faculty) => (
+              <Cards
+                key={faculty.faculty_id}
+                name={faculty.faculty_name}
+                img={faculty.faculty_img_url}
+                rating={faculty.faculty_rating}
+                position={faculty.faculty_position}
+              />
+            ))}
         </div>
       </div>
     );
